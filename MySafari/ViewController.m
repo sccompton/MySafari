@@ -60,7 +60,7 @@
 }
 
 
-//Make URL appear in text field
+//Make URL appear in text field, spinner starts animating
 - (void)webViewDidStartLoad:(UIWebView *)webView {
      myURLTextField.text = [[myWebView.request URL] absoluteString];
     [activitySpinner startAnimating];
