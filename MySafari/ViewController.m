@@ -12,6 +12,8 @@
 {
     __weak IBOutlet UIWebView *myWebView;
     __weak IBOutlet UITextField *myURLTextField;
+    __weak IBOutlet UILabel *titleLabel;
+    __weak IBOutlet UIActivityIndicatorView *activitySpinner;
     
 }
 
@@ -31,7 +33,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [activitySpinner stopAnimating];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to load webpage!" message:error. localizedDescription delegate:nil cancelButtonTitle:@"That Sucks" otherButtonTitles:@"Fine!", @"That does suck!", @"I Like Pie", nil];
+    [alert show];
+}
 
 //Add http to URL when necessary:
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -55,13 +62,18 @@
 
 //Make URL appear in text field
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-  //   myURLTextField.text = [[myWebView.request URL] absoluteString];
+     myURLTextField.text = [[myWebView.request URL] absoluteString];
+    [activitySpinner startAnimating];
    
     
     //Make title appear in text field
 
-myURLTextField.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+titleLabel.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
+}
+//When the page finishes loading, the spinner stops and hides
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [activitySpinner stopAnimating];
 }
 
 //Adds back button
