@@ -2,18 +2,17 @@
 //  AppDelegate.m
 //  MySafari
 //
-//  Created by Yash Varma on 1/9/14.
+//  Created by Stephen Compton on 1/9/14.
 //
 //
 
 #import "AppDelegate.h"
-#import <CheckMate/CheckMate.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [CheckMate initializeFramework:@"8a54ba6fb7e56aece4498202742e1894"];
+   // [CheckMate initializeFramework:@"d86a1d5ab1062932701470854ee93e3d"];
     // Override point for customization after application launch.
     return YES;
 }

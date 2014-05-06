@@ -2,7 +2,7 @@
 //  ViewController.m
 //  MySafari
 //
-//  Created by Yash Varma on 1/9/14.
+//  Created by Stephen Compton on 1/9/14.
 //
 //
 
